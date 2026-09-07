@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a393dec272f38574184a3e7f9f2f8ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  rotationSpeed: 80
+  speedMult: 2
   upperBound: 50
   lowerBound: -60
+  direction: 1
+  piOffset: 1
 --- !u!1001 &2450718383488004901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +113,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4424326145804476218, guid: f1743b005e7bf2445ac2f4cd4c2f6279, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884474286417386214, guid: f1743b005e7bf2445ac2f4cd4c2f6279, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6884474286417386214, guid: f1743b005e7bf2445ac2f4cd4c2f6279, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

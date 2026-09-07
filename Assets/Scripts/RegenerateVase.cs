@@ -15,6 +15,8 @@ public class RegenerateVase : MonoBehaviour {
 
     private bool isRespawning = false;
 
+    [SerializeField] private bool initialSpawn = false;
+
     // Spawns a vase right when the scene is run/played
     void Start(){
         if (vase == null) {
@@ -24,7 +26,7 @@ public class RegenerateVase : MonoBehaviour {
         if (respawnEffect != null) {
             respawnEffectDuration = respawnEffect.main.duration;
         }
-        SpawnVase();
+        if (initialSpawn) SpawnVase();
     }
 
     public void SpawnVase() {
