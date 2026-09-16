@@ -7,6 +7,7 @@ public class P2BarrelClick : MonoBehaviour
     public int barrelID;
     public AudioSource knockSound;  // for barrel knocking sound
     public float interactDistance = 5f; // like pickup.cs (how far to interact)
+    public TMPro.TextMeshPro textLabel;
 
     private Camera playerCam;
 
@@ -16,6 +17,7 @@ public class P2BarrelClick : MonoBehaviour
     {
         p2Manager = FindObjectOfType<P2BarrelPuzzManager>();
         playerCam = Camera.main;
+        textLabel.text = barrelID.ToString();
     }
 
     void Update()
