@@ -170,3 +170,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ingredient
   type: 1
+  color: {r: 0.017619325, g: 0.48584908, b: 0, a: 0}

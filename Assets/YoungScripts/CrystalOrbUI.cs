@@ -10,7 +10,7 @@ public class CrystalPuzzleUI : MonoBehaviour
     public TextMeshProUGUI selectedLetterText;
 
     [Header("Puzzle Settings")]
-    public string targetWord = "DEADLY";
+    public string targetWord = "457025";
 
     [Header("Orb Names")]
     public string[] orbNames = new string[]
@@ -32,7 +32,7 @@ public class CrystalPuzzleUI : MonoBehaviour
 
     private CrystalOrbInteractable currentOrb;
     private int currentLetterIndex = 0;
-    private const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private const string alphabet = "0123456789";
     private char[] selectedLetters;
     private bool isOpen = false;
 
@@ -43,7 +43,7 @@ public class CrystalPuzzleUI : MonoBehaviour
         selectedLetters = new char[targetWord.Length];
         for (int i = 0; i < selectedLetters.Length; i++)
         {
-            selectedLetters[i] = 'A';
+            selectedLetters[i] = alphabet[0];
         }
     }
 
