@@ -6,8 +6,11 @@ public class CrystalPuzzleUI : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject panel;
-    public TextMeshProUGUI orbTitleText;
-    public TextMeshProUGUI selectedLetterText;
+
+    // TMP_Text, not TextMeshProUGUI, so these accept either the Canvas version
+    // (TextMeshProUGUI) or the world-space one on the orbs themselves (TextMeshPro).
+    public TMP_Text orbTitleText;
+    public TMP_Text selectedLetterText;
 
     [Header("Puzzle Settings")]
     public string targetWord = "457025";
@@ -35,6 +38,7 @@ public class CrystalPuzzleUI : MonoBehaviour
     private const string alphabet = "0123456789";
     private char[] selectedLetters;
     private bool isOpen = false;
+    private bool hasUnlocked = false;
 
     private void Awake()
     {
@@ -76,7 +80,9 @@ public class CrystalPuzzleUI : MonoBehaviour
         return isOpen;
     }
 
-    public void OpenPanel(CrystalOrbInteractable orb)
+    // Point the puzzle at an orb and load its saved digit, without showing the 2D panel.
+    // The gesture path uses this on its own; OpenPanel builds on top of it.
+    public void SelectOrb(CrystalOrbInteractable orb)
     {
         if (orb == null) return;
 
@@ -86,10 +92,24 @@ public class CrystalPuzzleUI : MonoBehaviour
         int foundIndex = alphabet.IndexOf(currentLetter);
         currentLetterIndex = foundIndex >= 0 ? foundIndex : 0;
 
+        RefreshUI();
+    }
+
+    // The digit currently being scrolled through, which is not the same as GetLetter()
+    // - that one returns the digit already committed by SaveLetter().
+    public char GetSelectedLetter()
+    {
+        return alphabet[currentLetterIndex];
+    }
+
+    public void OpenPanel(CrystalOrbInteractable orb)
+    {
+        if (orb == null) return;
+
+        SelectOrb(orb);
+
         if (panel != null)
             panel.SetActive(true);
-
-        RefreshUI();
 
         isOpen = true;
 
@@ -146,8 +166,12 @@ public class CrystalPuzzleUI : MonoBehaviour
         char chosen = alphabet[currentLetterIndex];
         SetLetter(currentOrb.orbIndex, chosen);
 
-        if (IsCorrectWord())
+        // Guarded because saving now happens on every exit, so backing out of an orb
+        // while the code is already correct would replay the unlock sound each time.
+        if (IsCorrectWord() && !hasUnlocked)
         {
+            hasUnlocked = true;
+
             if (doorPrompt != null)
                 doorPrompt.Unlock();
         }
@@ -199,5 +223,10 @@ public class CrystalPuzzleUI : MonoBehaviour
 
         if (selectedLetterText != null)
             selectedLetterText.text = alphabet[currentLetterIndex].ToString();
+
+        // The 3D digit on the ball being polished. This is the one that matters now
+        // that the puzzle is played in the world rather than through the 2D panel.
+        if (currentOrb != null)
+            currentOrb.ShowDigit(alphabet[currentLetterIndex]);
     }
 }

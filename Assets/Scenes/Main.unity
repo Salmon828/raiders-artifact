@@ -11114,7 +11114,6 @@ GameObject:
   m_Component:
   - component: {fileID: 284836806}
   - component: {fileID: 284836805}
-  - component: {fileID: 284836804}
   - component: {fileID: 284836803}
   m_Layer: 0
   m_Name: CompletePuzzleCam
@@ -11167,14 +11166,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &284836804
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284836802}
-  m_Enabled: 1
 --- !u!20 &284836805
 Camera:
   m_ObjectHideFlags: 0
@@ -12941,6 +12932,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339175852}
     m_Modifications:
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 935814014}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: cameraLookScript
+      value: 
+      objectReference: {fileID: 935814014}
     - target: {fileID: 4291937527089424788, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: orbIndex
       value: 3
@@ -12953,6 +12956,22 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1645033492}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: orbIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: playerCameraTransform
+      value: 
+      objectReference: {fileID: 1645033492}
+    - target: {fileID: 6553801299550551856, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 36dd7061799281945926dec8964fafff, type: 2}
     - target: {fileID: 8265377431780249775, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -13004,7 +13023,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7091769596631687764, guid: e042188381b80f844906174593686091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e042188381b80f844906174593686091, type: 3}
 --- !u!1001 &322245394
 PrefabInstance:
@@ -16159,7 +16181,6 @@ GameObject:
   m_Component:
   - component: {fileID: 386246376}
   - component: {fileID: 386246375}
-  - component: {fileID: 386246374}
   - component: {fileID: 386246373}
   m_Layer: 0
   m_Name: Elevator Cam
@@ -16212,14 +16233,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &386246374
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386246372}
-  m_Enabled: 1
 --- !u!20 &386246375
 Camera:
   m_ObjectHideFlags: 0
@@ -22588,6 +22601,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339175852}
     m_Modifications:
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 935814014}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: cameraLookScript
+      value: 
+      objectReference: {fileID: 935814014}
     - target: {fileID: 4291937527089424788, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: orbIndex
       value: 2
@@ -22600,6 +22625,22 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1645033492}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: orbIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: playerCameraTransform
+      value: 
+      objectReference: {fileID: 1645033492}
+    - target: {fileID: 6553801299550551856, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fa934347e70ebc2419450853fc5ebc8f, type: 2}
     - target: {fileID: 8265377431780249775, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -22651,7 +22692,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7091769596631687764, guid: e042188381b80f844906174593686091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e042188381b80f844906174593686091, type: 3}
 --- !u!4 &522351655 stripped
 Transform:
@@ -27065,6 +27109,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339175852}
     m_Modifications:
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 935814014}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: cameraLookScript
+      value: 
+      objectReference: {fileID: 935814014}
     - target: {fileID: 4291937527089424788, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: orbIndex
       value: 1
@@ -27077,6 +27133,22 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1645033492}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: orbIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: playerCameraTransform
+      value: 
+      objectReference: {fileID: 1645033492}
+    - target: {fileID: 6553801299550551856, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d71dc5983ef3265488b2e924f4474622, type: 2}
     - target: {fileID: 8265377431780249775, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -27128,7 +27200,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7091769596631687764, guid: e042188381b80f844906174593686091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e042188381b80f844906174593686091, type: 3}
 --- !u!4 &636046804 stripped
 Transform:
@@ -43640,7 +43715,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 190ad8fe1a2889d488c0f0628bdb0df7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -54039,7 +54114,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1154091207}
   - component: {fileID: 1154091206}
-  - component: {fileID: 1154091205}
   - component: {fileID: 1154091204}
   m_Layer: 0
   m_Name: ElevatorWall Cam
@@ -54092,14 +54166,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1154091205
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154091203}
-  m_Enabled: 1
 --- !u!20 &1154091206
 Camera:
   m_ObjectHideFlags: 0
@@ -55353,6 +55419,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5393215578589016641, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393215578589016641, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393215578589016641, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393215578589016641, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5393215578589016642, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -55362,7 +55444,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5393215578589016655, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393215578589016655, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5393215578589016655, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3724711505742098449, guid: 2cf488ed1f08df54b932d2fe7ea98e1f, type: 3}
+    - target: {fileID: 5393215578589016655, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 6b911390c5825014e8377183a7837d3f, type: 2}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -55383,15 +55477,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.176926
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 81.63422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997996947095583982, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58024,15 +58118,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.8019257
+      value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 81.63422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.w
@@ -58040,7 +58134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.000000021855694
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.y
@@ -58063,6 +58157,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: far clip plane
       value: 500
       objectReference: {fileID: 0}
@@ -58078,6 +58176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 9018249871969862650, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_CustomBlends
+      value: 
+      objectReference: {fileID: 11400000, guid: 45ff5d24f0e533c4ab9ab6392f5165d3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -72070,7 +72172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1462157360}
   - component: {fileID: 1462157359}
-  - component: {fileID: 1462157358}
   - component: {fileID: 1462157357}
   - component: {fileID: 1462157356}
   m_Layer: 0
@@ -72146,14 +72247,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1462157358
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462157355}
-  m_Enabled: 1
 --- !u!20 &1462157359
 Camera:
   m_ObjectHideFlags: 0
@@ -76654,7 +76747,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1602394440}
   - component: {fileID: 1602394443}
-  - component: {fileID: 1602394442}
   - component: {fileID: 1602394441}
   m_Layer: 0
   m_Name: pickupCamera
@@ -76722,14 +76814,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1602394442
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1602394439}
-  m_Enabled: 1
 --- !u!20 &1602394443
 Camera:
   m_ObjectHideFlags: 0
@@ -85188,6 +85272,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339175852}
     m_Modifications:
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 935814014}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: cameraLookScript
+      value: 
+      objectReference: {fileID: 935814014}
     - target: {fileID: 4291937527089424788, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: orbIndex
       value: 4
@@ -85200,6 +85296,22 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1645033492}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: orbIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: playerCameraTransform
+      value: 
+      objectReference: {fileID: 1645033492}
+    - target: {fileID: 6553801299550551856, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c413975f139b235438146b8c43b100f0, type: 2}
     - target: {fileID: 8265377431780249775, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -85251,7 +85363,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7091769596631687764, guid: e042188381b80f844906174593686091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e042188381b80f844906174593686091, type: 3}
 --- !u!4 &1700187671 stripped
 Transform:
@@ -90606,7 +90721,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1818289485}
   - component: {fileID: 1818289484}
-  - component: {fileID: 1818289483}
   - component: {fileID: 1818289482}
   - component: {fileID: 1818289481}
   m_Layer: 0
@@ -90682,14 +90796,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1818289483
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818289480}
-  m_Enabled: 1
 --- !u!20 &1818289484
 Camera:
   m_ObjectHideFlags: 0
@@ -91886,6 +91992,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339175852}
     m_Modifications:
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 935814014}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: cameraLookScript
+      value: 
+      objectReference: {fileID: 935814014}
     - target: {fileID: 4291937527089424788, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: orbIndex
       value: 5
@@ -91898,6 +92016,22 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1645033492}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: orbIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: playerCameraTransform
+      value: 
+      objectReference: {fileID: 1645033492}
+    - target: {fileID: 6553801299550551856, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2093cc5c8bb58354c866bfa3e386c08e, type: 2}
     - target: {fileID: 8265377431780249775, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -91949,7 +92083,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7091769596631687764, guid: e042188381b80f844906174593686091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e042188381b80f844906174593686091, type: 3}
 --- !u!1001 &1867167744
 PrefabInstance:
@@ -97248,15 +97385,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.8019257
+      value: 1.375
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 81.63422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762286023885395322, guid: 9c489a8547f4d9e4387da15a4ff82c81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -104587,6 +104724,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339175852}
     m_Modifications:
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: showDebugView
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: movementScript
+      value: 
+      objectReference: {fileID: 935814014}
+    - target: {fileID: 107579387747173636, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: cameraLookScript
+      value: 
+      objectReference: {fileID: 935814014}
     - target: {fileID: 4291937527089424788, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: puzzleUI
       value: 
@@ -104595,6 +104748,18 @@ PrefabInstance:
       propertyPath: playerCameraTransform
       value: 
       objectReference: {fileID: 1645033492}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: puzzleUI
+      value: 
+      objectReference: {fileID: 531665364}
+    - target: {fileID: 6250995406706394171, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: playerCameraTransform
+      value: 
+      objectReference: {fileID: 1645033492}
+    - target: {fileID: 6553801299550551856, guid: e042188381b80f844906174593686091, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74c153a3add4a1c4b9fde1f7d929c24b, type: 2}
     - target: {fileID: 8265377431782182511, guid: e042188381b80f844906174593686091, type: 3}
       propertyPath: m_Name
       value: CrystalBall Of Sloth
@@ -104642,7 +104807,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7091769596631687764, guid: e042188381b80f844906174593686091, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e042188381b80f844906174593686091, type: 3}
 --- !u!4 &7516147023071599013 stripped
 Transform:
