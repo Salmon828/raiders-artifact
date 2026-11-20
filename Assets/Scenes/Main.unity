@@ -3242,6 +3242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WinZone
   winText: {fileID: 1754646116}
+  endImage: {fileID: 21300000, guid: b41b1fc9c16542f49a6dbd0e39884151, type: 3}
+  fadeToBlackDuration: 2
+  holdBlackDuration: 1
+  fadeInImageDuration: 2
+  unlockCursor: 1
 --- !u!65 &60120715
 BoxCollider:
   m_ObjectHideFlags: 0
