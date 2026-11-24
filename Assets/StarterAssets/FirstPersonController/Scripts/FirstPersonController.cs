@@ -116,18 +116,29 @@ namespace StarterAssets
 			_fallTimeoutDelta = FallTimeout;
 
 			// Update sensitivity on start
-			RotationSpeed = SettingsManager.Instance.lookSensitivity;
+			// SettingsManager lives in MainMenu; it is missing if Main is played directly in the editor
+			if (SettingsManager.Instance != null)
+			{
+				RotationSpeed = SettingsManager.Instance.lookSensitivity;
+			}
         }
 
         // Subscribe to sensitivity change event when the script is enabled and unsubscribe when disabled, guards against memory leaks and ensures the event is only handled when the script is active.
         private void OnEnable()
         {
-			SettingsManager.Instance.OnLookSensitivityChanged += OnSensitivityChanged;
+			if (SettingsManager.Instance != null)
+			{
+				SettingsManager.Instance.OnLookSensitivityChanged += OnSensitivityChanged;
+			}
         }
 
         private void OnDisable()
         {
-			SettingsManager.Instance.OnLookSensitivityChanged -= OnSensitivityChanged;
+			// Instance may already be destroyed when the application quits
+			if (SettingsManager.Instance != null)
+			{
+				SettingsManager.Instance.OnLookSensitivityChanged -= OnSensitivityChanged;
+			}
         }
 
         private void Update()
@@ -151,6 +162,9 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			// Mouse look isn't scaled by deltaTime, so it must be blocked explicitly while paused
+			if (Time.timeScale == 0f) return;
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{

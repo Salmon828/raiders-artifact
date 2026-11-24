@@ -1,9 +1,19 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WinZone : MonoBehaviour
 {
+    // True once the ending has started; PauseManager checks this to ignore Esc
+    public static bool IsEnding { get; private set; }
+
+    [Header("Return To Menu")]
+    public string mainMenuSceneName = "MainMenu";
+    public string returnPromptText = "Press any key to return to the menu";
+
     public GameObject winText; // optional, shown the moment the zone is triggered
 
     [Header("Ending Sequence")]
@@ -15,9 +25,16 @@ public class WinZone : MonoBehaviour
 
     private bool _triggered = false;
 
+    private void Awake()
+    {
+        // Static state survives scene loads, so reset it when the level starts again
+        IsEnding = false;
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (_triggered) return;
         _triggered = true;
+        IsEnding = true;
 
         if (other.CompareTag("canPickUp") && other.GetComponent<BreakableVase>() != null) {
             Debug.Log("You win! With vase");
@@ -62,6 +79,43 @@ public class WinZone : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+
+        // Prompt the player, then wait for any key or click to go back to the main menu
+        TextMeshProUGUI prompt = CreatePrompt(canvasObj.transform);
+        yield return Fade(prompt, 0f, 1f, 1f);
+
+        while (!AnyInputPressed())
+        {
+            yield return null;
+        }
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(mainMenuSceneName);
+    }
+
+    private bool AnyInputPressed()
+    {
+        bool key = Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame;
+        bool click = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
+        return key || click;
+    }
+
+    private TextMeshProUGUI CreatePrompt(Transform parent)
+    {
+        GameObject obj = new GameObject("ReturnPrompt");
+        obj.transform.SetParent(parent, false);
+        RectTransform rt = obj.AddComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0f, 0f);
+        rt.anchorMax = new Vector2(1f, 0.15f);
+        rt.offsetMin = Vector2.zero;
+        rt.offsetMax = Vector2.zero;
+        TextMeshProUGUI text = obj.AddComponent<TextMeshProUGUI>();
+        text.text = returnPromptText;
+        text.alignment = TextAlignmentOptions.Center;
+        text.fontSize = 20;
+        text.color = new Color(1f, 1f, 1f, 0f);
+        text.raycastTarget = false;
+        return text;
     }
 
     private Image CreateFullscreenImage(Transform parent, string name)
@@ -78,7 +132,7 @@ public class WinZone : MonoBehaviour
         return img;
     }
 
-    private IEnumerator Fade(Image img, float from, float to, float duration)
+    private IEnumerator Fade(Graphic img, float from, float to, float duration)
     {
         Color c = img.color;
         float t = 0f;

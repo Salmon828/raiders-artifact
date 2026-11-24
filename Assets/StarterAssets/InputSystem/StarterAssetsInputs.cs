@@ -66,14 +66,25 @@ namespace StarterAssets
 			sprint = newSprintState;
 		}
 		
+		private void Start()
+		{
+            // OnApplicationFocus only fires on focus changes, so lock explicitly when the game scene starts 
+            SetCursorState(cursorLocked);
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
-			SetCursorState(cursorLocked);
+			//Only re-lock if the cursor was hidden, fixes alt-tabbing 
+			if (hasFocus && !Cursor.visible)
+			{
+				SetCursorState(cursorLocked);
+			}
 		}
 
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+			Cursor.visible = !newState;
 		}
 	}
 	

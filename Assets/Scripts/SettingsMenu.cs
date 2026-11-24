@@ -32,7 +32,10 @@ public class SettingsMenu : MonoBehaviour
     {
         // Load settings from PlayerPrefs or set default values
         volumeSlider.SetValueWithoutNotify(AudioListener.volume);
-        sensitivitySlider.SetValueWithoutNotify(SettingsManager.Instance.lookSensitivity);
+        if (SettingsManager.Instance != null)
+        {
+            sensitivitySlider.SetValueWithoutNotify(SettingsManager.Instance.lookSensitivity);
+        }
         fullscreenToggle.SetIsOnWithoutNotify(Screen.fullScreen);
         graphicsQualityDropdown.SetValueWithoutNotify(QualitySettings.GetQualityLevel());
 
@@ -45,7 +48,10 @@ public class SettingsMenu : MonoBehaviour
     }
     void OnSensitivityChanged(float value)
     {
-        SettingsManager.Instance.lookSensitivity = value;
+        if (SettingsManager.Instance != null)
+        {
+            SettingsManager.Instance.lookSensitivity = value;
+        }
     }
     void OnFullscreenToggled(bool isFullscreen)
     {

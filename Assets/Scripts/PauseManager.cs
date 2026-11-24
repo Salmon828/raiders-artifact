@@ -21,6 +21,7 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         if (Keyboard.current == null) return; // Ensure that the keyboard is available before checking for input, change this if you want to support other input devices like gamepads
+        if (WinZone.IsEnding) return; // Don't allow pausing during the ending sequence
         if (Application.isPlaying && pauseMenu != null)
         {
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
