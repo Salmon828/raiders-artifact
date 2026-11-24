@@ -24,7 +24,7 @@ public class PauseManager : MonoBehaviour
         if (WinZone.IsEnding) return; // Don't allow pausing during the ending sequence
         if (Application.isPlaying && pauseMenu != null)
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            if (PausePressed())
             {
                 if (pauseMenu.activeInHierarchy)
                 {
@@ -36,6 +36,17 @@ public class PauseManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool PausePressed()
+    {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame) return true;
+#if UNITY_WEBGL
+        // In browsers, Esc is used to release the locked mouse and usually never reaches the game,
+        // so give web players other pause keys
+        if (Keyboard.current.pKey.wasPressedThisFrame || Keyboard.current.tabKey.wasPressedThisFrame) return true;
+#endif
+        return false;
     }
 
     void PauseGame()
