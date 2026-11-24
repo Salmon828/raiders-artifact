@@ -26,6 +26,13 @@ public class PauseManager : MonoBehaviour
         {
             if (PausePressed())
             {
+                // If a note/book is open, the pause key closes it instead of pausing
+                if (NoteUI.Current != null)
+                {
+                    NoteUI.Current.CloseNote();
+                    return;
+                }
+
                 if (pauseMenu.activeInHierarchy)
                 {
                     UnpauseGame();

@@ -10,7 +10,8 @@ public class NoteInteractable : MonoBehaviour
 
     private void Update()
     {
-        if (noteUI != null && noteUI.IsOpen()) return;
+        // NoteUI handles E to close; skip if open or if this E press just closed it
+        if (noteUI != null && (noteUI.IsOpen() || noteUI.ClosedThisFrame())) return;
 
         bool interactPressed = false;
 

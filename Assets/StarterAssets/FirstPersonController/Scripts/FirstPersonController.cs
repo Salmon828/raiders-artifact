@@ -11,6 +11,9 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		// Set by UI (e.g. NoteUI) to freeze mouse look while it's open
+		public static bool LookBlocked;
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -111,6 +114,9 @@ namespace StarterAssets
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
+			// Static state survives scene loads, so start each level with look enabled
+			LookBlocked = false;
+
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
@@ -163,7 +169,8 @@ namespace StarterAssets
 		private void CameraRotation()
 		{
 			// Mouse look isn't scaled by deltaTime, so it must be blocked explicitly while paused
-			if (Time.timeScale == 0f) return;
+			// or while a UI such as a note/book is open
+			if (Time.timeScale == 0f || LookBlocked) return;
 
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
