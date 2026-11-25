@@ -21,10 +21,18 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         if (Keyboard.current == null) return; // Ensure that the keyboard is available before checking for input, change this if you want to support other input devices like gamepads
+        if (WinZone.IsEnding) return; // Don't allow pausing during the ending sequence
         if (Application.isPlaying && pauseMenu != null)
         {
-            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            if (PausePressed())
             {
+                // If a note/book is open, the pause key closes it instead of pausing
+                if (NoteUI.Current != null)
+                {
+                    NoteUI.Current.CloseNote();
+                    return;
+                }
+
                 if (pauseMenu.activeInHierarchy)
                 {
                     UnpauseGame();
@@ -35,6 +43,17 @@ public class PauseManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool PausePressed()
+    {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame) return true;
+#if UNITY_WEBGL
+        // In browsers, Esc is used to release the locked mouse and usually never reaches the game,
+        // so give web players other pause keys
+        if (Keyboard.current.pKey.wasPressedThisFrame || Keyboard.current.tabKey.wasPressedThisFrame) return true;
+#endif
+        return false;
     }
 
     void PauseGame()

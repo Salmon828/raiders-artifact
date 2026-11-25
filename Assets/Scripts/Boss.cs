@@ -33,6 +33,7 @@ public class Boss : MonoBehaviour
 
     [Header("Health")]
     public int maxHealth = 10;
+    public int phase2Threshold = 2;
     public Image healthBarFill;
 
     [Header("Death")]
@@ -46,6 +47,11 @@ public class Boss : MonoBehaviour
     public Color flashColor = Color.red;
     public float knockbackSpeed = 8f;
     public float knockbackDuration = 0.4f;
+
+    [Header("Low Health Effects")]
+    public float newAttackInterval = 0.5f;
+    [Tooltip("How often the boss picks to do it's ranged attack")]
+    public float newRangeWeight = 0.2f;
 
     private int _currentHealth;
 
@@ -74,9 +80,12 @@ public class Boss : MonoBehaviour
     private bool isSpinning = false;
     private Vector3 startPosition;
 
+    private float rangeWeight = 0.7f;
+
+
     public void TriggerAttack()
     {
-        if (Random.value < 1f / 3f)
+        if (Random.value < rangeWeight)
             animator.SetTrigger("ProjAttack");
         else
             animator.SetTrigger("ChargeAttack");
@@ -112,6 +121,13 @@ public class Boss : MonoBehaviour
         _currentHealth--;
         UpdateHealthBar();
         Debug.Log($"Boss health: {_currentHealth}/{maxHealth}");
+
+        if (_currentHealth <= phase2Threshold)
+        {
+            attackInterval = newAttackInterval;
+            rangeWeight = newRangeWeight;
+            Debug.Log("I'm getting angry!!!");
+        }
 
         if (_currentHealth <= 0)
         {

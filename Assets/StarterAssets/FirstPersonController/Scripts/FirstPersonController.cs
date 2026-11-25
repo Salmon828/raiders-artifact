@@ -11,6 +11,9 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		// Set by UI (e.g. NoteUI) to freeze mouse look while it's open
+		public static bool LookBlocked;
+
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
@@ -111,23 +114,37 @@ namespace StarterAssets
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
+			// Static state survives scene loads, so start each level with look enabled
+			LookBlocked = false;
+
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
 
 			// Update sensitivity on start
-			RotationSpeed = SettingsManager.Instance.lookSensitivity;
+			// SettingsManager lives in MainMenu; it is missing if Main is played directly in the editor
+			if (SettingsManager.Instance != null)
+			{
+				RotationSpeed = SettingsManager.Instance.lookSensitivity;
+			}
         }
 
         // Subscribe to sensitivity change event when the script is enabled and unsubscribe when disabled, guards against memory leaks and ensures the event is only handled when the script is active.
         private void OnEnable()
         {
-			SettingsManager.Instance.OnLookSensitivityChanged += OnSensitivityChanged;
+			if (SettingsManager.Instance != null)
+			{
+				SettingsManager.Instance.OnLookSensitivityChanged += OnSensitivityChanged;
+			}
         }
 
         private void OnDisable()
         {
-			SettingsManager.Instance.OnLookSensitivityChanged -= OnSensitivityChanged;
+			// Instance may already be destroyed when the application quits
+			if (SettingsManager.Instance != null)
+			{
+				SettingsManager.Instance.OnLookSensitivityChanged -= OnSensitivityChanged;
+			}
         }
 
         private void Update()
@@ -151,6 +168,10 @@ namespace StarterAssets
 
 		private void CameraRotation()
 		{
+			// Mouse look isn't scaled by deltaTime, so it must be blocked explicitly while paused
+			// or while a UI such as a note/book is open
+			if (Time.timeScale == 0f || LookBlocked) return;
+
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
 			{

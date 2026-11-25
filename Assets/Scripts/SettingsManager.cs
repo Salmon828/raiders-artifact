@@ -24,7 +24,11 @@ public class SettingsManager : MonoBehaviour
     {
         AudioListener.volume = PlayerPrefs.GetFloat("Volume", 1f);
         lookSensitivity = PlayerPrefs.GetFloat("Sensitivity", 1f);
+#if !UNITY_WEBGL
+        // Browsers only allow fullscreen from a click, so on web the first click (e.g. Start Game)
+        // would suddenly go fullscreen. Web players use the settings toggle or itch's fullscreen button instead.
         Screen.fullScreen = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
+#endif
         QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("GraphicsQuality", 1));
     }
 
